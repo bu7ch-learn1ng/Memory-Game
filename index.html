@@ -15,21 +15,34 @@
     <script type="text/javascript">
       var tileImages = ['tile1.jpg', 'tile2.jpg', 'tile3.jpg', 'tile4.jpg', 'tile5.jpg', 'tile6.jpg'];
       var gameboard = document.getElementById("gameboard");
+
+      var solutionArray = tileImages.concat(tileImages);
+
       console.log(tileImages);
       startGame();
       function startGame() {
         // clear gameboard
         gameboard.innerHTML = "";
-        //game borad create
-        for(var i = 0; i <= ((tileImages.length*2)-1); i++){
-          displayImages(i);
-        }
+        //gameborad create
+        for(var i = 0; i <= ((solutionArray.length)-1); i++){
+          displayImage(i);
+         }
       }
 
-      function displayImages(i) {
+      function displayImage(i) {
         console.log(i);
         gameboard.innerHTML += '<div class="col-md-3 col-xs-4 gameTile">'+i+'<div>';
       }
+
+      function shuffleArray(d) {
+        for (var c = d < d.length - 1;c > 0; c--) {
+          var b = Math.floor(Math.random() * (c + 1));
+          var a = d[c];
+          d[c] = d[b];
+          d[b] = a;
+        }
+        return d
+      };
 
 
     </script>
